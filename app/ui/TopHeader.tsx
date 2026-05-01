@@ -132,21 +132,25 @@ export function TopHeader() {
           <div className="hidden flex-1 md:block" />
 
           <div className="hidden items-center gap-2 md:flex">
-            <button
+            <Link
+              href="https://t.me/CSKHGG88KJC"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-[30px] items-center justify-center rounded-full bg-transparent p-0 transition duration-150 hover:-translate-y-px hover:brightness-105"
-              type="button"
             >
               <Image src="/btn-cskh.png" alt="btn-cskh" width={157} height={30} />
               <span className="sr-only">CSKH 24/7</span>
-            </button>
+            </Link>
 
-            <button
+            <Link
+              href="https://gg8850.com/?id=525443428"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex h-[30px] items-center justify-center rounded-full bg-transparent p-0 transition duration-150 hover:-translate-y-px hover:brightness-105"
-              type="button"
             >
               <Image src="/btn-regis.png" alt="btn-regis" width={159} height={30} />
               <span className="sr-only">Đăng ký +68K</span>
-            </button>
+            </Link>
           </div>
 
           <div className="hidden md:block md:w-[260px] lg:w-[300px]">
