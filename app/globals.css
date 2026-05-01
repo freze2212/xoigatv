@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #070a08;
+  --foreground: #eaf5ee;
+  --panel: rgba(14, 18, 16, 0.72);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --neon: 57 255 20;
 }
 
 @theme inline {
@@ -12,15 +15,141 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  background:
+    radial-gradient(1200px 600px at 55% 0%, rgba(var(--neon), 0.12), transparent 60%),
+    radial-gradient(900px 520px at 0% 30%, rgba(16, 185, 129, 0.12), transparent 55%),
+    radial-gradient(800px 520px at 100% 30%, rgba(34, 197, 94, 0.10), transparent 55%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-body {
-  background: var(--background);
+.bg-app {
+  background-color: var(--background);
+}
+
+.text-app-foreground {
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-neon {
+  color: rgb(var(--neon));
+  text-shadow: 0 0 18px rgba(var(--neon), 0.35);
+}
+
+.glass-panel {
+  border-radius: 18px;
+  border: 1px solid var(--panel-border);
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.02)
+    ),
+    var(--panel);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 11px;
+  line-height: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.btn-neon {
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: rgba(5, 12, 7, 0.95);
+  background: linear-gradient(180deg, rgba(var(--neon), 0.95), rgba(34, 197, 94, 0.85));
+  box-shadow: 0 0 22px rgba(var(--neon), 0.22);
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.btn-neon:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.input {
+  height: 40px;
+  border-radius: 999px;
+  padding: 0 42px 0 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(0, 0, 0, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.input:focus {
+  border-color: rgba(var(--neon), 0.45);
+  box-shadow: 0 0 0 4px rgba(var(--neon), 0.10);
+}
+
+.match-card {
+  border-radius: 16px;
+  border: 1px solid rgba(var(--neon), 0.12);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.10));
+  padding: 12px;
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.match-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(var(--neon), 0.22);
+}
+
+.hero-banner {
+  position: relative;
+  background:
+    radial-gradient(900px 420px at 35% 40%, rgba(var(--neon), 0.12), transparent 55%),
+    radial-gradient(720px 380px at 95% 30%, rgba(16, 185, 129, 0.10), transparent 55%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.20));
+}
+
+.hero-banner__overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 380px at 50% 15%, rgba(57, 255, 20, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.55));
 }
